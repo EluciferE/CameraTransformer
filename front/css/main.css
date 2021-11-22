@@ -1,0 +1,38 @@
+body {
+    background: rgb(39, 23, 47);
+    background: linear-gradient(90deg, rgba(39, 23, 47, 1) 0%, rgba(113, 26, 163, 1) 77%);
+    height: 100%;
+}
+#camera{
+    margin-left: 27%;
+    margin-top: 6%;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 20%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+
+}
+
+/* The navigation menu links */
+.sidenav button {
+    margin-top: 10%;
+    margin-left: 17%;
+    font-size: 30px;
+    color: white;
+    background-color: #111;
+    text-align: center;
+    display:block;
+
+    font-family: "Roboto Light";
+
+    width: 160px;
+    height: 50px;
+}
