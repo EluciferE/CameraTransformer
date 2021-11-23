@@ -11,10 +11,16 @@
       </head>
       <body>
           <div class="sidenav">
+              <text id="fps">FPS: </text>
+              <text id="input_time"> Input time: </text>
+              <text id="transform_time"> Transform time:</text>
+              <text id="output_time"> Output time:</text>
+
               <button onclick="negative_button()" id="negative">Negative</button>
-              <button onclick="mirror_x_button()" id="mirror_x">mirror X</button>
-              <button onclick="mirror_y_button()" id="mirror_y">mirror Y</button>
-              <button onclick="blur_button()" id="blur">blur </button>
+              <button onclick="mirror_x_button()" id="mirror_x">Mirror X</button>
+              <button onclick="mirror_y_button()" id="mirror_y">Mirror Y</button>
+              <button onclick="blur_button()" id="blur"> Blur </button>
+              <button onclick="gray_button()" id="gray"> Gray </button>
             </div>
 
         <img src="" id="camera">
