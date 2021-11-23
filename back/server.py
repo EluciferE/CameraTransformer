@@ -2,6 +2,8 @@ import asyncio
 import websockets
 from back.camera import Camera
 from back.protocol import PROTOCOL
+from json import dumps
+from base64 import b64encode
 
 camera = Camera()
 
@@ -20,20 +22,41 @@ async def main(websocket, path):
     try:
         while ...:
             ans = await websocket.recv()
-            if ans == PROTOCOL.negative_button:
+
+            if ans == PROTOCOL.negative:
                 camera.add_mask(camera.NEGATIVE)
-            if ans == PROTOCOL.mirror_x:
+
+            elif ans == PROTOCOL.mirror_x:
                 camera.add_mask(camera.MIRROR_X)
-            if ans == PROTOCOL.mirror_y:
+
+            elif ans == PROTOCOL.mirror_y:
                 camera.add_mask(camera.MIRROR_Y)
-            if ans == PROTOCOL.blur:
+
+            elif ans == PROTOCOL.blur:
                 camera.add_mask(camera.BLUR)
 
-            await websocket.send(camera.get_frame())
+            elif ans == PROTOCOL.gray:
+                camera.add_mask(camera.GRAY)
+
+            elif ans == PROTOCOL.update_times:
+                time1 = camera.total_time
+                time2 = camera.input_time
+                time3 = camera.transform_time
+                camera.null_times()
+                await websocket.send(dumps({"type": PROTOCOL.update_times,
+                                            "data": {"total_time": time1,
+                                                     "input_time": time2,
+                                                     "transform_time": time3}}))
+
+            if ans != PROTOCOL.update_times:
+                await websocket.send(dumps({"type": PROTOCOL.update_cam,
+                                            "data": b64encode(camera.get_frame()).decode()}))
 
     # TODO close server
-    except ValueError as e:
-        print(e)
+
+    # keepalive ping failed
+    except KeyError:
+        pass
 
     except websockets.exceptions.ConnectionClosedError:
         print("Connection was closed")
