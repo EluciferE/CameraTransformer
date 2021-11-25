@@ -65,8 +65,6 @@ function setup() {
                 document.getElementById("output_time").innerText = "Output time: " +
                     (Math.round(output_time/total_time * 100)).toString() + "%";
 
-                console.log("DONE");
-
                 num_frames = 0;
                 output_time = 0;
 
@@ -76,7 +74,7 @@ function setup() {
 
     socket.onopen = function () {
         socket.send(PROTOCOL.ready);
-        console.log("Open connection");
+        console.log("Connected to server");
         socket.send(PROTOCOL.update_cam);
     }
 }

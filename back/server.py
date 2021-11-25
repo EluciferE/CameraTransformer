@@ -10,7 +10,7 @@ camera = Camera()
 
 async def main(websocket, path):
     # START CONNECTION
-    print("Connected")
+    print("Connected to client")
     info = await websocket.recv()
     if info != PROTOCOL.ready:
         return
