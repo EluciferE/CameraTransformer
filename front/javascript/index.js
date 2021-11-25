@@ -57,13 +57,16 @@ function setup() {
                     ((num_frames/total_time).toFixed(2)).toString();
 
                 document.getElementById("input_time").innerText = "Input time: " +
-                    (Math.round(data["input_time"]/total_time * 100)).toString() + "%";
+                    + (Math.round(data["input_time"] * 100)/100).toString() + "s (" +
+                    (Math.round(data["input_time"]/total_time * 100)).toString() + "%)";
 
                 document.getElementById("transform_time").innerText = "Transform time: " +
-                    (Math.round(data["transform_time"]/total_time * 100)).toString() + "%";
+                    + (Math.round(data["transform_time"] * 100)/100).toString() + "s (" +
+                    (Math.round(data["transform_time"]/total_time * 100)).toString() + "%)";
 
                 document.getElementById("output_time").innerText = "Output time: " +
-                    (Math.round(output_time/total_time * 100)).toString() + "%";
+                    + (Math.round(output_time * 100)/100).toString() + "s (" +
+                    (Math.round(output_time/total_time * 100)).toString() + "%)";
 
                 num_frames = 0;
                 output_time = 0;
