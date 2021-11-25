@@ -21,11 +21,11 @@ class Camera:
         self.transform_time = 0
 
     def get_frame(self):
-        t1 = time()
+        start_time = time()
         ret_val, frame = self.video.read()
 
-        t2 = time()
-        self.input_time += t2 - t1
+        input_time = time()
+        self.input_time += input_time - start_time
 
         if self.NEGATIVE in self.masks:
             frame = 255 - frame
@@ -40,9 +40,9 @@ class Camera:
 
         image = cv2.imencode(".jpg", frame)[1].tobytes()
 
-        t3 = time()
-        self.transform_time += t3 - t2
-        self.total_time += t3 - t1
+        end_time = time()
+        self.transform_time += end_time - input_time
+        self.total_time += end_time - start_time
 
         self.num_frame += 1
 
