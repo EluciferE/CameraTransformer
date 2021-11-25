@@ -1,6 +1,5 @@
 import cv2
 from time import time
-import numpy as np
 
 # for noises
 import random

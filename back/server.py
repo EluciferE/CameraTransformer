@@ -12,12 +12,8 @@ async def main(websocket, path):
     # START CONNECTION
     print("Connected")
     info = await websocket.recv()
-    print(info)
     if info != PROTOCOL.ready:
-        print("not ready")
         return
-    else:
-        print("Got Ready")
 
     try:
         while ...:

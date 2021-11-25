@@ -1,11 +1,17 @@
 body {
-    background: rgb(39, 23, 47);
-    background: linear-gradient(90deg, rgba(39, 23, 47, 1) 0%, rgba(113, 26, 163, 1) 77%);
+    /*background: rgb(39, 23, 47);
+     background: linear-gradient(90deg, rgba(39, 23, 47, 1) 0%, rgba(113, 26, 163, 1) 77%); */
+    background-image: url("../img/background.png");
     height: 100%;
+    background-position: center
 }
 #camera{
     margin-left: 33%;
     margin-top: 6.5%;
+    border-radius: 16px;
+    width: 650px;
+    height: 450px;
+    filter: brightness(80%)
 }
 
 .sidenav {
